@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     public Rigidbody rig;
+    public SpriteRenderer sprite;
 
     public float speed;
 
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         velocity = (new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical")).normalized) * speed;
+        sprite.flipX = Input.GetAxis("Horizontal") < 0;
     }
 
     private void FixedUpdate() {
